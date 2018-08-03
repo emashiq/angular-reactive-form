@@ -5,11 +5,17 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.route';
 import { ReactiveFormsModule, FormsModule } from '../../node_modules/@angular/forms';
+import { ReduxComponent } from './redux/redux.component';
+import { AdvanceformComponent } from './advanceform/advanceform.component';
+import { StoreModule } from '../../node_modules/@ngrx/store';
+import { counterReducer } from './reducer/counter';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReduxComponent,
+    AdvanceformComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,6 +23,7 @@ import { ReactiveFormsModule, FormsModule } from '../../node_modules/@angular/fo
     NgbModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({ counter:counterReducer })
     
   ],
   providers: [],
